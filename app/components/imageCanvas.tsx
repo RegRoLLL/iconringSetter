@@ -37,8 +37,9 @@ export default function ImageCanvas(prop: Props) {
     if (!downloadLink) return;
 
     if (typeof downloadLink.download == "string") {
+      const date = new Date();
       downloadLink.href = uri;
-      downloadLink.download = "generatedIcon.png";
+      downloadLink.download = `generatedIcon_${date.toLocaleString()}.png`;
       downloadLink.click();
     } else {
       window.open(uri);
