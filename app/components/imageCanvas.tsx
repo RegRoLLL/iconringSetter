@@ -5,11 +5,11 @@ import { useRef } from "react";
 type Props = {
   iconImg: string | null;
   ringImg: string | null;
+  iconScale: number;
 };
 
 export default function ImageCanvas(prop: Props) {
   const imgSize = 1024;
-  const className = "size-full absolute";
   const targetDivRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const dlLinkRef = useRef<HTMLAnchorElement>(null);
@@ -50,16 +50,15 @@ export default function ImageCanvas(prop: Props) {
     <div className="flex flex-col gap-2 w-full items-center">
       <div
         ref={targetDivRef}
-        className="relative flex flex-col aspect-square max-w-4xs w-full mx-8 bg-white"
+        className="relative flex flex-col aspect-square max-w-4xs w-full mx-8 bg-white overflow-hidden"
       >
         {prop.iconImg && (
-          <Image
-            src={prop.iconImg!}
-            alt="iconImg"
-            height={imgSize}
-            width={imgSize}
-            className={className}
-          />
+          <div
+            className="absolute inset-0 flex items-center justify-center"
+            style={{ transform: `scale(${prop.iconScale})` }}
+          >
+            <Image src={prop.iconImg!} alt="iconImg" fill />
+          </div>
         )}
         {prop.ringImg && (
           <Image
@@ -67,7 +66,7 @@ export default function ImageCanvas(prop: Props) {
             alt="ringImg"
             height={imgSize}
             width={imgSize}
-            className={className}
+            className="size-full absolute"
           />
         )}
       </div>
