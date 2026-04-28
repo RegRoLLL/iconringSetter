@@ -21,7 +21,7 @@ export default function Home() {
       <div className="h-1 w-full rounded-sm bg-white" />
       <a className="text-sm -my-2 text-gray-800">ver.beta-1.1</a>
       <ImageCanvas iconImg={iconImg} ringImg={ringImg} iconScale={scale} />
-      <div className="flex flex-row gap-3 items-">
+      <div className="flex sm:flex-row flex-col gap-3 items-">
         <ImageSelecter labelText="アイコン画像選択" onSelect={setIconImg} />
         <ImageSelecter labelText="リング画像選択" onSelect={setRingImg} />
       </div>
@@ -36,9 +36,15 @@ export default function Home() {
         />
       </div>
       <div className="mt-10">
-        2026-03-01 アイコンサイズ調整機能を実装
-        <br />
-        2026-02-19 公開
+        {[
+          "2026-04-29 画像選択ボタンのレイアウト改善",
+          "2026-03-01 アイコンサイズ調整機能を実装",
+          "2026-02-19 公開",
+        ].map((item) => (
+          <p key={item} className="text-gray-500">
+            {item}
+          </p>
+        ))}
       </div>
     </div>
   );
