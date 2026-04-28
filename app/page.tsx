@@ -3,6 +3,7 @@
 import { ChangeEventHandler, useState } from "react";
 import ImageSelecter from "./components/imageSelecter";
 import ImageCanvas from "./components/imageCanvas";
+import ChangesHistory from "./components/changesHistory";
 
 export default function Home() {
   const [ringImg, setRingImg] = useState<string | null>(null);
@@ -21,7 +22,7 @@ export default function Home() {
       <div className="h-1 w-full rounded-sm bg-white" />
       <a className="text-sm -my-2 text-gray-800">ver.beta-1.1</a>
       <ImageCanvas iconImg={iconImg} ringImg={ringImg} iconScale={scale} />
-      <div className="flex flex-row gap-3 items-">
+      <div className="flex sm:flex-row flex-col gap-3 items-">
         <ImageSelecter labelText="アイコン画像選択" onSelect={setIconImg} />
         <ImageSelecter labelText="リング画像選択" onSelect={setRingImg} />
       </div>
@@ -35,11 +36,7 @@ export default function Home() {
           onChange={handleOnScaleChange}
         />
       </div>
-      <div className="mt-10">
-        2026-03-01 アイコンサイズ調整機能を実装
-        <br />
-        2026-02-19 公開
-      </div>
+      <ChangesHistory />
     </div>
   );
 }

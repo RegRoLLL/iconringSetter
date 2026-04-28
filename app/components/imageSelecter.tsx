@@ -46,7 +46,7 @@ export default function ImageSelecter({ labelText, onSelect }: Props) {
       />
       <button
         onClick={onSelectButtonClick}
-        className="bg-white text-indigo-300 font-bold text-xl cursor-pointer px-5 py-1 rounded-md hover:scale-105"
+        className="bg-white text-indigo-300 font-bold text-xl cursor-pointer px-5 py-2 rounded-md hover:scale-105"
       >
         {labelText}
       </button>
