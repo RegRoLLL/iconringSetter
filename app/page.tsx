@@ -20,7 +20,7 @@ export default function Home() {
         アイコンリングセッター!!（仮設）
       </a>
       <div className="h-1 w-full rounded-sm bg-white" />
-      <a className="text-sm -my-2 text-gray-800">ver.beta-1.1</a>
+      <a className="text-sm -my-2 text-gray-800">ver.beta-1.2</a>
       <ImageCanvas iconImg={iconImg} ringImg={ringImg} iconScale={scale} />
       <div className="flex sm:flex-row flex-col gap-3 items-">
         <ImageSelecter labelText="アイコン画像選択" onSelect={setIconImg} />
