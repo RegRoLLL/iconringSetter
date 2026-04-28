@@ -26,7 +26,7 @@ export default function Home() {
         <ImageSelecter labelText="アイコン画像選択" onSelect={setIconImg} />
         <ImageSelecter labelText="リング画像選択" onSelect={setRingImg} />
       </div>
-      <div className="flex flex-row gap-5 w-full bg-white text-indigo-300 font-bold text-xl cursor-pointer px-5 py-1 rounded-md">
+      <div className="flex flex-col sm:flex-row gap-0 sm:gap-5 w-full bg-white text-indigo-300 font-bold text-xl cursor-pointer px-5 py-1 rounded-md">
         <label
           className="w-fit cursor-pointer hover:text-blue-600"
           onClick={() => setScale(1)}
