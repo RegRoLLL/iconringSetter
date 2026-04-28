@@ -22,18 +22,25 @@ export default function Home() {
       <div className="h-1 w-full rounded-sm bg-white" />
       <a className="text-sm -my-2 text-gray-800">ver.beta-1.2</a>
       <ImageCanvas iconImg={iconImg} ringImg={ringImg} iconScale={scale} />
-      <div className="flex sm:flex-row flex-col gap-3 items-">
+      <div className="flex sm:flex-row flex-col gap-3">
         <ImageSelecter labelText="アイコン画像選択" onSelect={setIconImg} />
         <ImageSelecter labelText="リング画像選択" onSelect={setRingImg} />
       </div>
-      <div className="flex flex-row gap-5 bg-white text-indigo-300 font-bold text-xl cursor-pointer px-5 py-1 rounded-md">
-        <label className="w-48">アイコン倍率:{scale}</label>
+      <div className="flex flex-row gap-5 w-full bg-white text-indigo-300 font-bold text-xl cursor-pointer px-5 py-1 rounded-md">
+        <label
+          className="w-fit cursor-pointer hover:text-blue-600"
+          onClick={() => setScale(1)}
+        >
+          アイコン倍率:{scale.toFixed(2)}
+        </label>
         <input
           type="range"
           min={0}
           max={2}
+          value={scale}
           step={0.01}
           onChange={handleOnScaleChange}
+          className="grow cursor-pointer"
         />
       </div>
       <ChangesHistory />
