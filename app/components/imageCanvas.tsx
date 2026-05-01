@@ -55,16 +55,17 @@ export default function ImageCanvas(prop: Props) {
   const generateImgUri = (): void => {
     const target = targetDivRef;
     if (!target.current) return;
-    html2canvas(target.current!, { scale: 1, useCORS: true }).then(
-      (canvas: HTMLCanvasElement) => {
-        const out = canvasRef.current!;
-        const ctx = out.getContext("2d")!;
-        ctx.drawImage(canvas, 0, 0, imgSize, imgSize);
+    console.log("generating image...", window.devicePixelRatio);
+    html2canvas(target.current!, {
+      scale: Math.max(1, window.devicePixelRatio),
+    }).then((canvas: HTMLCanvasElement) => {
+      const out = canvasRef.current!;
+      const ctx = out.getContext("2d")!;
+      ctx.drawImage(canvas, 0, 0, imgSize, imgSize);
 
-        const targetImgUri = out.toDataURL("image/png");
-        saveImg(targetImgUri);
-      },
-    );
+      const targetImgUri = out.toDataURL("image/png");
+      saveImg(targetImgUri);
+    });
   };
 
   const saveImg = (uri: string): void => {
